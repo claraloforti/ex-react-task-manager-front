@@ -1,0 +1,29 @@
+// src/App.jsx
+
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+
+import TaskList from "./pages/TaskList";
+import AddTask from "./pages/AddTask";
+import { GlobalProvider } from "./context/GlobalContext";
+
+function App() {
+    return (
+        <GlobalProvider>
+            <BrowserRouter>
+                {/* Navbar */}
+                <nav className="navbar container">
+                    <NavLink to="/">Lista Task</NavLink>
+                    <NavLink to="/add-task">Aggiungi Task</NavLink>
+                </nav>
+
+                <Routes>
+                    <Route path="/" element={<TaskList />} />
+
+                    <Route path="/add" element={<AddTask />} />
+                </Routes>
+            </BrowserRouter>
+        </GlobalProvider>
+    );
+}
+
+export default App;

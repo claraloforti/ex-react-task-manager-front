@@ -1,0 +1,42 @@
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(86, 179, 255, 0.912);
+    padding: 20px;
+}
+
+.navbar * {
+    text-decoration: none;
+    color: black;
+}
+
+/* Tabella */
+.task-table {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.task-table th,
+.task-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.task-table h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
