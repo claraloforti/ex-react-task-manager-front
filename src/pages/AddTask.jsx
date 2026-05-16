@@ -2,10 +2,8 @@ import { useRef, useState } from "react";
 
 function AddTask() {
 
-    // controllati
     const [title, setTitle] = useState("");
     const [error, setError] = useState("");
-    // non controllati
     const descriptionRef = useRef();
     const statusRef = useRef();
 
@@ -14,7 +12,7 @@ function AddTask() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // validazione titolo
+        // Validazione titolo
         if (!title.trim()) {
             setError("Il titolo è obbligatorio");
             return;
@@ -51,7 +49,10 @@ function AddTask() {
                         type="text"
                         placeholder="Nome task"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={(e) => {
+                            setTitle(e.target.value);
+                            setError("");
+                        }}
                     />
 
                     {error && <p style={{ color: "red" }}>{error}</p>}
