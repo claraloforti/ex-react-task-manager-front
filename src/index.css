@@ -10,6 +10,7 @@
     margin: 0 auto;
 }
 
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -23,7 +24,8 @@
     color: black;
 }
 
-/* Tabella */
+
+/* Tabella tasks */
 .task-table {
     display: flex;
     flex-direction: column;
@@ -39,4 +41,52 @@
 .task-table h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+
+/* Add task page */
+.add-task-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #e6e6e6b0;
+    border-radius: 12px;
+}
+
+.add-task-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-task-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-task-container input,
+.add-task-container textarea,
+.add-task-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.add-task-container textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.add-task-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #4d6fff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-task-container button:hover {
+    background: #3b56d6;
 }

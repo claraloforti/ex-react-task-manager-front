@@ -13,7 +13,7 @@ function App() {
                 {/* Navbar */}
                 <nav className="navbar container">
                     <NavLink to="/">Lista Task</NavLink>
-                    <NavLink to="/add-task">Aggiungi Task</NavLink>
+                    <NavLink to="/add">Aggiungi Task</NavLink>
                 </nav>
 
                 <Routes>
