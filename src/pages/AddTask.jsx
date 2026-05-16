@@ -29,11 +29,12 @@ function AddTask() {
 
         setError("");
 
-        const task = {
+        const newTask = {
             title,
             description: descriptionRef.current.value,
             status: statusRef.current.value,
-        };
+        }
+        console.log("Nuova task:", newTask)
     };
 
     return (
