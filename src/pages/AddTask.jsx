@@ -2,7 +2,6 @@ import { useRef, useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 function AddTask() {
-
     const { addTask } = useContext(GlobalContext);
 
     const [title, setTitle] = useState("");
@@ -12,46 +11,51 @@ function AddTask() {
 
     const symbols = "!@#$%^&*()-_=+[]{}|;:'\\\",.<>?/`~";
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        // Validazione titolo
-        if (!title.trim()) {
-            setError("Il titolo è obbligatorio");
-            return;
+    // Validazione titolo
+    const validateTitle = (value) => {
+        if (!value.trim()) {
+            return "Il titolo è obbligatorio";
         }
 
-        const hasSymbols = symbols.split("").some((char) =>
-            title.includes(char)
+        const hasSymbols = symbols.split("").some(char =>
+            value.includes(char)
         );
 
         if (hasSymbols) {
-            setError("Il titolo non può contenere simboli speciali");
-            return;
+            return "Il titolo non può contenere simboli speciali";
         }
 
-        setError("");
+        return "";
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const validationError = validateTitle(title);
+
+        if (validationError) {
+            setError(validationError);
+            return;
+        }
 
         const newTask = {
             title,
             description: descriptionRef.current.value,
             status: statusRef.current.value,
-        }
+        };
 
         try {
             await addTask(newTask);
             alert("Task creata con successo!");
 
-            // Reset form
             setTitle("");
             descriptionRef.current.value = "";
             statusRef.current.value = "To do";
+
         } catch (err) {
             alert(err.message);
         }
     };
-
-
 
     return (
         <div className="add-task-container">
@@ -60,30 +64,26 @@ function AddTask() {
 
             <form onSubmit={handleSubmit}>
 
-                {/* Input titolo */}
                 <div>
                     <input
                         type="text"
                         placeholder="Nome task"
                         value={title}
                         onChange={(e) => {
-                            setTitle(e.target.value);
-                            setError("");
+                            const value = e.target.value;
+
+                            setTitle(value);
+                            setError(validateTitle(value));
                         }}
                     />
 
                     {error && <p style={{ color: "red" }}>{error}</p>}
                 </div>
 
-                {/* Input descrizione */}
                 <div>
-                    <textarea
-                        placeholder="Descrizione"
-                        ref={descriptionRef}
-                    />
+                    <textarea ref={descriptionRef} />
                 </div>
 
-                {/* Select stato */}
                 <div>
                     <select ref={statusRef} defaultValue="To do">
                         <option value="To do">To do</option>

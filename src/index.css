@@ -13,15 +13,17 @@
 
 /* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(86, 179, 255, 0.912);
-    padding: 20px;
+    background: #4d6fff;
+    padding: 30px;
 }
 
 .navbar * {
     text-decoration: none;
-    color: black;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 7px;
+    border-radius: 15px;
+    margin-left: 40px;
 }
 
 
@@ -41,6 +43,15 @@
 .task-table h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.task-link {
+    text-decoration: none;
+    color: black;
+}
+
+.task-link:hover {
+    color: #4d6fff;
 }
 
 
