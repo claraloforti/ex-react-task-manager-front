@@ -1,6 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 
 function AddTask() {
+
+    const { addTask } = useContext(GlobalContext);
 
     const [title, setTitle] = useState("");
     const [error, setError] = useState("");
@@ -9,7 +12,7 @@ function AddTask() {
 
     const symbols = "!@#$%^&*()-_=+[]{}|;:'\\\",.<>?/`~";
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validazione titolo
@@ -34,8 +37,21 @@ function AddTask() {
             description: descriptionRef.current.value,
             status: statusRef.current.value,
         }
-        console.log("Nuova task:", newTask)
+
+        try {
+            await addTask(newTask);
+            alert("Task creata con successo!");
+
+            // Reset form
+            setTitle("");
+            descriptionRef.current.value = "";
+            statusRef.current.value = "To do";
+        } catch (err) {
+            alert(err.message);
+        }
     };
+
+
 
     return (
         <div className="add-task-container">
