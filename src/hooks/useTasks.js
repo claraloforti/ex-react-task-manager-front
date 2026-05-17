@@ -30,7 +30,18 @@ export function useTasks() {
     };
 
     // Rimuovi task
-    const removeTask = (taskId) => { };
+    const removeTask = async (taskId) => {
+        const response = await fetch(`${apiUrl}/tasks/${taskId}`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+        setTasks(prev =>
+            prev.filter(task => task.id !== taskId)
+        );
+    };
 
     // Modifica task
     const updateTask = (updatedTask) => { };

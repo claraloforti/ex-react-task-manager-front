@@ -10,7 +10,7 @@ function TaskRow({ task }) {
             case "Doing":
                 return "#ffd633";
             case "Done":
-                return "#4dff88";
+                return "#4ce67f";
             default:
                 return "white";
         }

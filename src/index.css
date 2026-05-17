@@ -60,7 +60,7 @@
     max-width: 500px;
     margin: 50px auto;
     padding: 20px;
-    background: #e6e6e6b0;
+    background-color: #e6e6e6b0;
     border-radius: 12px;
 }
 
@@ -100,4 +100,33 @@
 
 .add-task-container button:hover {
     background: #3b56d6;
+}
+
+/* Task detail page */
+.task-detail {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #e6e6e6b0;
+}
+
+.task-detail p {
+    margin: 10px 0;
+}
+
+.task-detail button {
+    margin-top: 10px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #e45858;
+    color: white;
+}
+
+.task-detail button:hover {
+    background-color: #c23e3e;
 }
