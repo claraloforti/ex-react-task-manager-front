@@ -44,7 +44,23 @@ export function useTasks() {
     };
 
     // Modifica task
-    const updateTask = (updatedTask) => { };
+    const updateTask = async (updatedTask) => {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${updatedTask.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedTask),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setTasks((prev) =>
+                prev.map((task) => (task.id === updatedTask.id ? data.task : task))
+            );
+        } else {
+            throw new Error(data.message);
+        }
+    };
 
     return { tasks, addTask, removeTask, updateTask };
 }
