@@ -102,6 +102,7 @@
     background: #3b56d6;
 }
 
+
 /* Task detail page */
 .task-detail {
     max-width: 500px;
@@ -129,4 +130,46 @@
 
 .task-detail button:hover {
     background-color: #c23e3e;
+}
+
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.modal-actions button:hover {
+    background-color: #ddd;
+}
+
+.modal * {
+    margin-top: 10px;
 }

@@ -81,7 +81,8 @@ function AddTask() {
                 </div>
 
                 <div>
-                    <textarea ref={descriptionRef} />
+                    <textarea ref={descriptionRef}
+                        placeholder="Descrizione" />
                 </div>
 
                 <div>
