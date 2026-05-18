@@ -54,6 +54,10 @@
     color: #4d6fff;
 }
 
+.task-table th {
+    cursor: pointer;
+}
+
 
 /* Add task page */
 .add-task-container {
